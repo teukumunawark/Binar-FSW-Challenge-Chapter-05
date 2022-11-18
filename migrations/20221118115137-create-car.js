@@ -9,34 +9,40 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.INTEGER
-      },
-      no_police: {
+      plate: {
         type: Sequelize.STRING
       },
-      brand: {
+      manufacture: {
         type: Sequelize.STRING
       },
       model: {
         type: Sequelize.STRING
       },
-      image: {
-        type: Sequelize.STRING
-      },
-      price_perday: {
+      rentPerDay: {
         type: Sequelize.INTEGER
       },
       capacity: {
         type: Sequelize.INTEGER
       },
-      status: {
-        type: Sequelize.BOOLEAN
-      },
-      transmision: {
+      image: {
         type: Sequelize.STRING
       },
+      description: {
+        type: Sequelize.STRING
+      },
+      transmission: {
+        type: Sequelize.STRING
+      },
+      available: {
+        type: Sequelize.BOOLEAN
+      },
       type: {
+        type: Sequelize.STRING
+      },
+      year: {
+        type: Sequelize.INTEGER
+      },
+      availableAt: {
         type: Sequelize.STRING
       },
       createdAt: {
