@@ -24,9 +24,6 @@ module.exports = {
       capacity: {
         type: Sequelize.INTEGER
       },
-      image: {
-        type: Sequelize.STRING
-      },
       description: {
         type: Sequelize.STRING
       },
@@ -42,9 +39,6 @@ module.exports = {
       year: {
         type: Sequelize.INTEGER
       },
-      availableAt: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -53,10 +47,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      deletedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   async down(queryInterface, Sequelize) {

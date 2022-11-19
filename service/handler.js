@@ -1,5 +1,4 @@
 const { Car } = require('../models');
-const { cloudinary } = require('../utils/cloudinary');
 
 const createCarHandler = async (req, res) => {
   const {
@@ -13,25 +12,22 @@ const createCarHandler = async (req, res) => {
     available,
     type,
     year,
-    availableAt,
   } = req.body;
-  const result = await cloudinary.uploader.upload(req.file?.path);
-  const image = result.url;
 
+  
   const car = await Car.create({
     plate,
     manufacture,
     model,
     rentPerDay,
     capacity,
-    image,
     description,
     transmission,
     available,
     type,
     year,
-    availableAt,
   });
+  
   if (!car) {
     return res.status(400).json({
       status: "Failed",
@@ -76,7 +72,8 @@ const getCarByIdHandler = async (req, res) => {
 
 const updateCarByIdHandler = async (req, res) => {
   const { id } = req.params;
-  const updateCar = await Car.update({ ...req.body }, { where: { id } });
+  await Car.update({ ...req.body }, { where: { id } });
+  const updateCar = await Car.findByPk(id);
   if (!updateCar) {
     return res.status(404).json({
       status: "Failed",
